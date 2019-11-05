@@ -6,7 +6,7 @@
 #    By: trifflet <trifflet@student.le-101.fr>      +:+   +:    +:    +:+      #
 #                                                  #+#   #+    #+    #+#       #
 #    Created: 2019/10/07 12:41:36 by trifflet     #+#   ##    ##    #+#        #
-#    Updated: 2019/10/22 15:24:05 by trifflet    ###    #+. /#+    ###.fr      #
+#    Updated: 2019/11/05 22:13:57 by trifflet    ###    #+. /#+    ###.fr      #
 #                                                          /                   #
 #                                                         /                    #
 # **************************************************************************** #
@@ -72,12 +72,12 @@ FLAGS		=	-Wall -Wextra -Werror
 all:    	$(NAME)
 
 $(NAME):	$(OBJ)
-			ar rc $(NAME) $(OBJ)
-			ranlib $(NAME)
+			ar rcs $(NAME) $(OBJ)
 
-bonus:		$(OBJ_BONUS)
-			ar rc $(NAME) $(OBJ_BONUS)
-			ranlib $(NAME)
+
+bonus:		$(NAME) $(OBJ_BONUS)
+			ar rcs $(NAME) $(OBJ_BONUS)
+			touch bonus
 
 clean:
 			rm -rf $(OBJ) $(OBJ_BONUS)
@@ -87,4 +87,4 @@ fclean: 	clean
 
 re:			fclean all
 
-.PHONY:	all bonus clean fclean re
+.PHONY:	all clean fclean re
